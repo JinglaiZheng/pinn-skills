@@ -1,4 +1,4 @@
-# PINN Skill — Physics-Informed Neural Networks Training Guide
+# PINN Skill — Enhance Agent PINN Coding by 8 Steps
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Star History](https://img.shields.io/badge/Star%20History-View%20Chart-blue?logo=github)](https://star-history.com/#JinglaiZheng/pinn-skills&Date)
@@ -34,6 +34,21 @@ with evidence-based method selection for different PDE types.
   gradient handling, sampling strategies
 - **Diagnostic-driven improvement**: When accuracy is insufficient, systematically
   applies improvement techniques in priority order based on ablation study evidence
+
+## The 8-Step PINN Workflow
+
+The skill guides the agent through a standardized pipeline:
+
+| Step | Name | What Happens |
+|------|------|-------------|
+| 1 | **Problem Analysis** | Classify the PDE type (elliptic/parabolic/hyperbolic), identify domain, boundary conditions, and difficulty factors (shocks, stiffness, chaos) |
+| 2 | **Model Planning** | Select architecture (MLP / Modified MLP), Fourier features, loss balancing strategy, and training algorithm based on problem classification and PINNacle benchmark recommendations |
+| 3 | **Code Writing** | Generate complete PyTorch PINN code with non-dimensionalization, proper gradient handling, causal training, and adaptive loss weighting |
+| 4 | **Code Checking** | Verify input normalization, derivative computation, activation choice, loss term isolation, and BC enforcement against a 12-point checklist |
+| 5 | **Reference Solver** | Write an independent numerical solver (FEM, finite difference, or spectral) to produce ground-truth reference solutions for error computation |
+| 6 | **Results Analysis** | Compute relative L2 error, absolute L∞ error, plot loss convergence curves, and diagnose training pathologies |
+| 7 | **Visualization** | Generate publication-quality comparison plots, error field heatmaps, and loss/weight evolution curves |
+| 8 | **Model Improvement** | Systematically apply fixes in priority order: Fourier features → loss balancing → causal training → modified MLP → curriculum training → hard BC constraints → hyperparameter tuning → adaptive sampling |
 
 ## Installation
 
