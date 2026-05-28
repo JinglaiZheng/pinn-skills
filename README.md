@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Star History](https://img.shields.io/badge/Star%20History-View%20Chart-blue?logo=github)](https://star-history.com/#JinglaiZheng/pinn-skills&Date)
 
+![PINN Skill Banner](assets/pinn-skills.png)
+
 A Claude Code skill that helps researchers and engineers build robust, high-accuracy
 Physics-Informed Neural Networks (PINNs) using PyTorch.
 
