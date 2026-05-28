@@ -22,7 +22,7 @@ jobs:
         id: stars
         run: |
           STARS=$(curl -s -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/JinglaiZheng/pinn-skill" | \
+            "https://api.github.com/repos/JinglaiZheng/pinn-skills" | \
             python3 -c "import sys,json; print(json.load(sys.stdin)['stargazers_count'])")
           echo "count=$STARS" >> $GITHUB_OUTPUT
           echo "Star count: $STARS"

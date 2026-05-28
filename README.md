@@ -1,7 +1,7 @@
 # PINN Skill — Physics-Informed Neural Networks Training Guide
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Star History](https://img.shields.io/badge/Star%20History-View%20Chart-blue?logo=github)](https://star-history.com/#JinglaiZheng/pinn-skill&Date)
+[![Star History](https://img.shields.io/badge/Star%20History-View%20Chart-blue?logo=github)](https://star-history.com/#JinglaiZheng/pinn-skills&Date)
 
 A Claude Code skill that helps researchers and engineers build robust, high-accuracy
 Physics-Informed Neural Networks (PINNs) using PyTorch.
@@ -17,7 +17,7 @@ with evidence-based method selection for different PDE types.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JinglaiZheng/pinn-skill&type=Date)](https://star-history.com/#JinglaiZheng/pinn-skill&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=JinglaiZheng/pinn-skills&type=Date)](https://star-history.com/#JinglaiZheng/pinn-skills&Date)
 
 ## What This Skill Does
 
@@ -48,7 +48,7 @@ claude skills install pinn.skill
 # Clone into your Claude Code skills directory
 mkdir -p ~/.claude/skills
 cd ~/.claude/skills
-git clone https://github.com/JinglaiZheng/pinn-skill.git pinn
+git clone https://github.com/JinglaiZheng/pinn-skills.git pinn
 ```
 
 ### Method 3: Copy locally
