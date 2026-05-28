@@ -1,0 +1,20 @@
+# Packaging output
+*.skill
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PDF extraction tmp files
+*.txt.tmp

@@ -1,0 +1,65 @@
+name: Star Tracker
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+  workflow_dispatch:       # Manual trigger
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/stars.json'
+
+jobs:
+  track-stars:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch star count
+        id: stars
+        run: |
+          STARS=$(curl -s -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/JinglaiZheng/pinn-skill" | \
+            python3 -c "import sys,json; print(json.load(sys.stdin)['stargazers_count'])")
+          echo "count=$STARS" >> $GITHUB_OUTPUT
+          echo "Star count: $STARS"
+
+      - name: Update star history
+        run: |
+          DATE=$(date -u +"%Y-%m-%d")
+          python3 -c "
+          import json, os
+          data_file = 'data/stars.json'
+          data = []
+          if os.path.exists(data_file):
+              with open(data_file) as f:
+                  data = json.load(f)
+          data.append({'date': '$DATE', 'stars': ${{ steps.stars.outputs.count }}})
+          # Deduplicate by date
+          seen = set()
+          unique = []
+          for entry in reversed(data):
+              if entry['date'] not in seen:
+                  seen.add(entry['date'])
+                  unique.append(entry)
+          unique.reverse()
+          with open(data_file, 'w') as f:
+              json.dump(unique, f, indent=2)
+          print(f'Saved {len(unique)} entries')
+          "
+
+      - name: Generate star chart
+        run: |
+          pip install matplotlib -q
+          python scripts/star_chart.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/stars.json star_chart.png
+          git diff --staged --quiet || git commit -m "[bot] Update star chart ($(date -u +%Y-%m-%d))"
+          git push
