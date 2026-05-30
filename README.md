@@ -1,4 +1,4 @@
-# PINN Skill — Enhance Agent PINN Coding by 8 Steps
+# pinn-skills — Enhance Agent's PINN Coding by 8 Steps
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Star History](https://img.shields.io/badge/Star%20History-View%20Chart-blue?logo=github)](https://star-history.com/#JinglaiZheng/pinn-skills&Date)
